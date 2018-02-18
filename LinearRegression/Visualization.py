@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from LinearRegression import LinearRegression
+import LinearRegression as lr
 
 
 df = pd.read_csv('data.csv', sep=',', header=None)
@@ -23,7 +23,7 @@ y = np.asarray(y)
 plt.scatter(x, y, color='k', marker='x')
 plt.show()
 
-ln = LinearRegression(theta, x, y, alpha)
+ln = lr.LinearRegression(theta, x, y, alpha)
 cost_x = []
 cost_y = []
 
