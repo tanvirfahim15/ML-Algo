@@ -29,7 +29,6 @@ ln = lr.LinearRegression(theta, x, y, alpha)
 cost_x = []
 cost_y = []
 
-ln.feature_normalize()
 for i in range(1500):
     ln.gradient_decent()
     cost_x.append(i)
