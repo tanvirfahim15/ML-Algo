@@ -21,6 +21,8 @@ x = np.asarray(x)
 y = np.asarray(y)
 
 plt.scatter(x, y, color='k', marker='x')
+plt.xlabel('Feature')
+plt.ylabel('Output')
 plt.show()
 
 ln = lr.LinearRegression(theta, x, y, alpha)
@@ -33,6 +35,8 @@ for i in range(1500):
     cost_y.append(ln.cost())
     if i % 100 == 0:
         plt.scatter(x, y, color='k', marker='x')
+        plt.xlabel('Feature')
+        plt.ylabel('Output')
         x_axis = [0, 25]
         plt.plot(x_axis, ln.predict(np.array([[0], [25]])))
         plt.show()
@@ -40,4 +44,6 @@ for i in range(1500):
 print(ln.theta)
 
 plt.plot(cost_x, cost_y)
+plt.xlabel('Iterations')
+plt.ylabel('Cost')
 plt.show()
