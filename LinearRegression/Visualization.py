@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import LinearRegression as lr
-
+import time
 
 df = pd.read_csv('data.csv', sep=',', header=None)
 arr = np.array(df)
@@ -20,20 +20,18 @@ theta = np.array([15.0, 16.0])
 x = np.asarray(x)
 y = np.asarray(y)
 
-plt.scatter(x, y, color='k', marker='x')
-plt.xlabel('Feature')
-plt.ylabel('Output')
-plt.show()
+
 
 ln = lr.LinearRegression(theta, x, y, alpha)
 cost_x = []
 cost_y = []
 
-for i in range(1500):
+for i in range(2000):
     ln.gradient_decent()
     cost_x.append(i)
     cost_y.append(ln.cost())
     if i % 100 == 0:
+        time.sleep(0.5)
         plt.scatter(ln.get_x()[:, 1], ln.get_y(), color='k', marker='x')
         plt.xlabel('Feature')
         plt.ylabel('Output')
@@ -42,6 +40,7 @@ for i in range(1500):
         plt.show()
 
 print(ln.theta)
+print(ln.cost())
 
 plt.plot(cost_x, cost_y)
 plt.xlabel('Iterations')
