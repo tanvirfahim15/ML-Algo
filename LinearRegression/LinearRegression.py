@@ -37,5 +37,16 @@ class LinearRegression:
         off = np.matmul(one, np.multiply(self.x, np.reshape((self.prediction()-self.y), (-1, 1)))).flatten()
         self.theta = self.theta-off
 
+    def feature_normalize(self):
+        mean = np.mean(self.x[:, 1:], axis=1).reshape(-1,1)
+        std = np.std(self.x[:, 1:], axis=1).reshape(-1,1)
+        self.x[:, 1:] = (self.x[:, 1:]-mean)/std
+
     def get_theta(self):
         return self.theta
+
+    def get_x(self):
+        return self.x
+
+    def get_y(self):
+        return self.y

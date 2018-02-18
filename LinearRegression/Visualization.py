@@ -29,12 +29,13 @@ ln = lr.LinearRegression(theta, x, y, alpha)
 cost_x = []
 cost_y = []
 
+ln.feature_normalize()
 for i in range(1500):
     ln.gradient_decent()
     cost_x.append(i)
     cost_y.append(ln.cost())
     if i % 100 == 0:
-        plt.scatter(x, y, color='k', marker='x')
+        plt.scatter(ln.get_x()[:, 1], ln.get_y(), color='k', marker='x')
         plt.xlabel('Feature')
         plt.ylabel('Output')
         x_axis = [0, 25]
