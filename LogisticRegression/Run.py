@@ -14,9 +14,11 @@ def sigmoid(vector):
     return ret
 
 
+def predict(theta,X):
+    return
 
 
-df=pd.read_csv('data.csv', sep= ',', header=None)
+df = pd.read_csv('data.csv', sep=',', header=None)
 df=df.values.flatten()
 x1=[]
 x2=[]
