@@ -16,7 +16,7 @@ def sigmoid(vector):
 
 
 
-df=pd.read_csv('data.csv', sep=',',header=None)
+df=pd.read_csv('data.csv', sep= ',', header=None)
 df=df.values.flatten()
 x1=[]
 x2=[]
@@ -43,5 +43,3 @@ for i in range(x1.__len__()):
 plt.scatter(posx1, posx2, color='y')
 plt.scatter(negx1,negx2)
 plt.show()
-
-print(1)
