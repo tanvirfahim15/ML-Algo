@@ -24,14 +24,14 @@ plt.scatter(x, y, color='k', marker='x')
 plt.show()
 
 ln = LinearRegression(theta, x, y, alpha)
-it_x=[]
-it_y=[]
+cost_x = []
+cost_y = []
 
 for i in range(1500):
     ln.gradient_decent()
-    it_x.append(i)
-    it_y.append(ln.cost())
-    if i%100==0:
+    cost_x.append(i)
+    cost_y.append(ln.cost())
+    if i % 100 == 0:
         plt.scatter(x, y, color='k', marker='x')
         x_axis = [0, 25]
         plt.plot(x_axis, ln.predict(np.array([[0], [25]])))
@@ -39,5 +39,5 @@ for i in range(1500):
 
 print(ln.theta)
 
-plt.plot(it_x, it_y)
+plt.plot(cost_x, cost_y)
 plt.show()
