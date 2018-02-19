@@ -15,18 +15,17 @@ for i in range(0, arr.size, 2):
 
 iterations = 1500
 alpha = 0.01
-theta = np.array([15.0, 16.0])
+theta = np.array([15.0, 1.0])
 
 x = np.asarray(x)
 y = np.asarray(y)
-
 
 
 ln = lr.LinearRegression(theta, x, y, alpha)
 cost_x = []
 cost_y = []
 
-for i in range(2000):
+for i in range(3000):
     ln.gradient_decent()
     cost_x.append(i)
     cost_y.append(ln.cost())
